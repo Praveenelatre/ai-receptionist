@@ -4,7 +4,8 @@ const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL;
 
 export default async function handler(req, res) {
   const params = await bodyToParams(req);
-  const base = new URL(req.url, `https://${req.headers.host}`);
+  const proto = req.headers["x-forwarded-proto"] || "https";
+const base = new URL(req.url, `${proto}://${req.headers.host}`);
   const name = url.searchParams.get("name") || "caller";
   const service = url.searchParams.get("service") || "service";
   const inputType = params.InputType || "";
