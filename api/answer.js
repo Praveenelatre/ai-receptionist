@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const base = new URL(req.url, `http://${req.headers.host}`);
+  const base = new URL(req.url, `https://${req.headers.host}`);
   const next = `${base.origin}/api/collect-name`;
   const response =
 `<Response>
