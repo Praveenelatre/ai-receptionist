@@ -1,5 +1,3 @@
-export const config = { runtime: "nodejs18.x" };
-
 export default async function handler(req, res) {
   const base = new URL(req.url, `http://${req.headers.host}`);
   const next = `${base.origin}/api/collect-name`;
