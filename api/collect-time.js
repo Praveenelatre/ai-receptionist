@@ -4,7 +4,7 @@ const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL;
 
 export default async function handler(req, res) {
   const params = await bodyToParams(req);
-  const url = new URL(req.url, `http://${req.headers.host}`);
+  const base = new URL(req.url, `https://${req.headers.host}`);
   const name = url.searchParams.get("name") || "caller";
   const service = url.searchParams.get("service") || "service";
   const inputType = params.InputType || "";
