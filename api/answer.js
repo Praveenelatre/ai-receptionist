@@ -1,5 +1,6 @@
 export default async function handler(req, res) {
-  const base = new URL(req.url, `https://${req.headers.host}`);
+  const proto = req.headers["x-forwarded-proto"] || "https";
+const base = new URL(req.url, `${proto}://${req.headers.host}`);
   const next = `${base.origin}/api/collect-name`;
   const response =
 `<Response>
