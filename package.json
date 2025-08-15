@@ -1,0 +1,8 @@
+{
+  "name": "ai-receptionist",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "chrono-node": "2.6.3"
+  }
+}
