@@ -5,8 +5,8 @@ export default async function handler(req, res) {
   const inputType = params.InputType || params.inputType || "";
   const name = inputType === "speech" ? params.Speech : "";
   const conf = Number(params.SpeechConfidenceScore || "0");
-  const base = new URL(req.url, `https://${req.headers.host}`);
-
+  const proto = req.headers["x-forwarded-proto"] || "https";
+const base = new URL(req.url, `${proto}://${req.headers.host}`);
   if (!name || conf < 0.6) {
     const retry =
 `<Response>
