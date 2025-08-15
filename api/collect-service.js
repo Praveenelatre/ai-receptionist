@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   else if (/order/.test(service)) service = "order";
   else service = spoken || params.Digits || "";
 
-  const base = new URL(req.url, `http://${req.headers.host}`);
+  const base = new URL(req.url, `https://${req.headers.host}`);
   const next = `${base.origin}/api/collect-time?name=${encodeURIComponent(name)}&service=${encodeURIComponent(service)}&conf=${nameConf}`;
 
   const out =
